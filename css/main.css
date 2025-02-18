@@ -3,7 +3,7 @@
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Poppins",  sans-serif;
-  --nav-font: "Raleway",  sans-serif;
+  --nav-font: "Open Sans",  sans-serif;
 }
 
 /* Global Colors */
@@ -11,7 +11,7 @@
   --background-color: #ffffff;
   --default-color: #444444;
   --heading-color: #004990;
-  --accent-color: #ffb400;
+  --accent-color: #F7A11A;
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
 }
@@ -19,16 +19,20 @@
 /* Nav Menu Colors */
 :root {
   --nav-color: #004990;
-  --nav-hover-color: #ffb400;
+  --nav-hover-color: #F7A11A;
   --nav-mobile-background-color: #ffffff;
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #004990;
-  --nav-dropdown-hover-color: #ffb400;
+  --nav-dropdown-hover-color: #F7A11A;
 }
 
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
+}
+
+html {
+  height: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -38,6 +42,10 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
 }
 
 a {
@@ -51,12 +59,7 @@ a:hover {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
@@ -145,15 +148,17 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
+  transition: all 0.3s ease-in-out;
   z-index: 997;
   background-color: var(--background-color);
 }
 
 .header .topbar {
   background-color: var(--heading-color);
-  height: 40px;
+  height: 30px;
   padding: 0;
-  font-size: 14px;
+  font-size: 13px;
+  transition: all 0.3s ease-in-out;
 }
 
 .header .topbar .contact-info i {
@@ -196,9 +201,36 @@ h6 {
   color: var(--accent-color);
 }
 
+
+@media screen and (max-width: 767px){
+  .header .headerlogo {
+    display: none;
+  }
+}
+
+.header .headerlogo {
+  background-color: var(--background-color);
+  padding: 10px 0;
+}
+
+.header .headerlogo img {
+  max-height: 60px;
+}
+
+.header .headerlogo .header-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.header .headerlogo .header-subtitle {
+  font-size: 16px;
+  color: var(--accent-color);
+}
+
+
 .header .branding {
   min-height: 60px;
-  padding: 10px 0;
+  padding: 0;
 }
 
 .header .logo {
@@ -206,12 +238,12 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 64px;
   margin-right: 8px;
 }
 
 .header .logo h1 {
-  font-size: 30px;
+  font-size: 24px;
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
@@ -220,8 +252,8 @@ h6 {
 .header .cta-btn,
 .header .cta-btn:focus {
   color: var(--contrast-color);
-  background: var(--accent-color);
-  font-size: 14px;
+  background: var(--heading-color);
+  font-size: 12px;
   padding: 8px 25px;
   margin: 0 0 0 30px;
   border-radius: 50px;
@@ -231,7 +263,7 @@ h6 {
 .header .cta-btn:hover,
 .header .cta-btn:focus:hover {
   color: var(--contrast-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  background: var(--accent-color);
 }
 
 @media (max-width: 1200px) {
@@ -530,27 +562,12 @@ h6 {
   color: var(--accent-color);
   background-color: var(--heading-color);
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
-  margin-top: 30px;
+  margin-top: auto;
 }
-
-.footer .logo {
-  margin-top: 20px;
-  align-items: center;
-}
-
-.footer .description {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  font-size: 20px;
-  text-align: center;
-  align-items: center;
-}
-
 .footer .copyright {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-bottom: 16px;
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 0%);
 }
 
@@ -656,8 +673,9 @@ section,
 @media screen and (min-width: 1024px) {
   section,
   .section {
-    scroll-margin-top: 20px;
-    padding: 30px 150px 10px;
+    scroll-margin-top: 30px;
+    padding: 30px;
+    margin-bottom: 30px;
   }
 }
 
@@ -665,16 +683,16 @@ section,
 (max-width: 1023px){
   section,
   .section {
-    scroll-margin-top: 20px;
-    padding: 30px 50px 10px;
+    scroll-margin-top: 30px;
+    padding: 30px;
   }
 }
 
 @media screen and (max-width: 767px){
   section,
   .section {
-    scroll-margin-top: 20px;
-    padding: 10px;
+    scroll-margin-top: 30px;
+    padding: 30px;
   }
 }
 
@@ -692,7 +710,6 @@ section,
 .section-title h2 {
   font-size: 32px;
   font-weight: 500;
-  margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
 }
@@ -732,7 +749,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: calc(100vh - 112px);
+  min-height: 600px;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -954,7 +971,7 @@ section,
   padding-right: 48px;
 }
 .services .service-item li {
-  text-align: justify;
+  text-align: left;
 }
 
 .services .service-item:hover {
@@ -1179,6 +1196,7 @@ section,
 /*--------------------------------------------------------------
 # Faq Section
 --------------------------------------------------------------*/
+
 .faq p{
   text-align: justify;
 }
@@ -1411,16 +1429,8 @@ section,
 # Contact Section
 --------------------------------------------------------------*/
 
-.contact p{
-  text-align: justify;
-}
-
-.contact .info-item+.info-item {
-  margin-top: 40px;
-}
-
-.contact .mapa{
-  padding: 30px 30px 25px 30px;
+.contact .info-item {
+margin: 20px;
 }
 
 .contact .info-item i {
@@ -1435,7 +1445,6 @@ section,
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
   margin-right: 15px;
-  margin-left: 48px;
 }
 
 .contact .info-item h3 {
@@ -1451,6 +1460,46 @@ section,
   font-size: 14px;
 }
 
+.contact .php-email-form {
+  height: 100%;
+}
+
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--default-color);
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.contact .php-email-form input[type=text]::placeholder,
+.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.contact .php-email-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 36px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
 /*--------------------------------------------------------------
 # prices Section
 --------------------------------------------------------------*/
@@ -1501,4 +1550,149 @@ section,
 .prices .tab-content .table td {
   color: var(--default-color);
   font-size: 15px;
+}
+
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# Appointment Section
+--------------------------------------------------------------*/
+.appointment .php-email-form {
+  width: 100%;
+}
+
+.appointment .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.appointment .php-email-form input,
+.appointment .php-email-form textarea,
+.appointment .php-email-form select {
+  color: var(--default-color);
+  background-color: transparent;
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 10px !important;
+}
+
+.appointment .php-email-form input:focus,
+.appointment .php-email-form textarea:focus,
+.appointment .php-email-form select:focus {
+  border-color: var(--accent-color);
+}
+
+.appointment .php-email-form input::placeholder,
+.appointment .php-email-form textarea::placeholder,
+.appointment .php-email-form select::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.appointment .php-email-form input,
+.appointment .php-email-form select {
+  height: 44px;
+}
+
+.appointment .php-email-form textarea {
+  padding: 10px 12px;
+}
+
+.appointment .php-email-form button[type=submit] {
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.appointment .php-email-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  overflow: hidden;
+  background: var(--background-color);
+  transition: all 0.6s ease-out;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #ffffff;
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: animate-preloader 1.5s linear infinite;
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
