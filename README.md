@@ -16,7 +16,7 @@ Este proyecto fue desarrollado como parte del cumplimiento de mi **servicio soci
 ## 🛠️ Herramientas utilizadas
 
 - **Adobe Dreamweaver** para el desarrollo y diseño del sitio
-- HTML / CSS / JavaScript
+- HTML / CSS / JavaScript / Bootstrap 5
 
 ## 📌 Nota
 
